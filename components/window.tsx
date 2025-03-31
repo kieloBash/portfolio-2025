@@ -8,6 +8,18 @@ const Window = ({ children }: { children?: React.ReactNode }) => {
 
   const isInView = useInView(containerRef);
 
+  const containerControls = useAnimationControls();
+  const containerVariants = {
+    hide: {
+      opacity: 0,
+      y: 50,
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+    },
+  };
+
   const lightControls = useAnimationControls();
   const lightVariants = {
     hide: {
@@ -21,8 +33,10 @@ const Window = ({ children }: { children?: React.ReactNode }) => {
   useEffect(() => {
     if (isInView) {
       lightControls.start("show");
+      containerControls.start("show");
     } else {
       lightControls.start("hide");
+      containerControls.start("hide");
     }
   }, [isInView]);
 
@@ -64,12 +78,11 @@ const Window = ({ children }: { children?: React.ReactNode }) => {
   return (
     <motion.div
       ref={containerRef}
-      whileHover={{
-        scale: 1.005,
-      }}
+      variants={containerVariants}
+      animate={containerControls}
       transition={{
-        duration: 0.2,
-        type: "spring",
+        duration: 1,
+        ease: "easeInOut",
       }}
       className="w-full max-w-5xl rounded-xl border p-1.5 bg-neutral-900 relative overflow-hidden"
     >

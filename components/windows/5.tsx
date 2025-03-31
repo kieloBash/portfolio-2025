@@ -5,9 +5,9 @@ import Browser from "../browser";
 import Link from "next/link";
 import { ProjectType } from "@/lib/constants";
 
-const FirstWindow = () => {
-  const projectName: ProjectType = "trainerhub";
-  
+const FifthWindow = () => {
+  const projectName: ProjectType = "lizboutique";
+
   return (
     <Window>
       <div className="w-full min-h-screen px-8 py-8 relative">
@@ -19,18 +19,18 @@ const FirstWindow = () => {
             <ArrowRight className="size-8" />
           </button>
         </Link>
-        <h1 className="text-3xl font-bold mb-2">TrainerHub</h1>
+        <h1 className="text-3xl font-bold mb-2">StylizInventory</h1>
         <p className="text-base max-w-xl mb-8">
-          Capstone Commission 2025 -{" "}
+          Commission 2024 -{" "}
           <span className="text-neutral-400">
-            Mobile application for trainer workout bookings and website
-            application for admin users.
+            Website application for financial tracking of live sellers and
+            invoice management.
           </span>
         </p>
-        <Browser url="http://trainerhub.vercel.com"></Browser>
+        <Browser url="http://stylizinventory.vercel.com"></Browser>
       </div>
     </Window>
   );
 };
 
-export default FirstWindow;
+export default FifthWindow;
